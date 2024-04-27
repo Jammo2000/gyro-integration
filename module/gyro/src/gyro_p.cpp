@@ -36,15 +36,15 @@ short kipr::gyro::gyro_z()
 
 int kipr::gyro::gyro_total_x()
 {
-  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_X_B3));
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_X_B3)) / 1000;
 }
 int kipr::gyro::gyro_total_y()
 {
-  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Y_B3));
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Y_B3)) / 1000;
 }
 int kipr::gyro::gyro_total_z()
 {
-  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Z_B3));
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Z_B3)) / 1000;
 }
 // Simple low-pass filter for gyroscope
 bool kipr::gyro::gyro_calibrate()
