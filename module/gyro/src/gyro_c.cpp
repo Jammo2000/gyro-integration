@@ -19,6 +19,18 @@ short gyro_z()
 	return gyro::gyro_z();
 }
 
+int gyro_total_x()
+{
+	return gyro::gyro_total_x();
+}
+int gyro_total_y()
+{
+	return gyro::gyro_total_y();
+}
+int gyro_total_z()
+{
+	return gyro::gyro_total_z();
+}
 int gyro_calibrate()
 {
 	return (gyro::gyro_calibrate() ? 0 : -1);

@@ -19,21 +19,33 @@ using kipr::core::Platform;
 // Pulls gyroscope data from the I2C registers. The MPU 9250 outputs high and low registers that need to be combined.
 short kipr::gyro::gyro_x()
 {
-  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_X_H)) / 16 - biasx;
+  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_X_H)) - biasx;
 }
 
 // Pulls gyroscope data from the I2C registers. The MPU 9250 outputs high and low registers that need to be combined.
 short kipr::gyro::gyro_y()
 {
-  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_Y_H)) / 16 - biasy;
+  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_Y_H)) - biasy;
 }
 
 // Pulls gyroscope data from the I2C registers. The MPU 9250 outputs high and low registers that need to be combined.
 short kipr::gyro::gyro_z()
 {
-  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_Z_H)) / 16 - biasz;
+  return static_cast<signed short>(Platform::instance()->readRegister16b(REG_RW_GYRO_Z_H)) - biasz;
 }
 
+int kipr::gyro::gyro_total_x()
+{
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_X_B3));
+}
+int kipr::gyro::gyro_total_y()
+{
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Y_B3));
+}
+int kipr::gyro::gyro_total_z()
+{
+  return static_cast<signed int>(Platform::instance()->readRegister32b(REG_RW_GYRO_TOTAL_Z_B3));
+}
 // Simple low-pass filter for gyroscope
 bool kipr::gyro::gyro_calibrate()
 {

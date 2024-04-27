@@ -11,6 +11,12 @@ namespace kipr
 
     short gyro_z();
 
+    int gyro_total_x();
+
+    int gyro_total_y();
+
+    int gyro_total_z();
+
     bool gyro_calibrate();
 
     bool gyro_calibrated();
